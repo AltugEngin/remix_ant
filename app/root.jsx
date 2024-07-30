@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import NavigationPage from "./components/NavigationPage";
 
 export function Layout({ children }) {
   return (
@@ -26,5 +27,7 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return(<div className="flex">
+    <NavigationPage/> 
+  <Outlet /></div>);
 }
