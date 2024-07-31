@@ -1,118 +1,89 @@
 
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {  BarChartOutlined,AlertOutlined,ToolOutlined,TrophyOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
+import { useNavigate } from '@remix-run/react';
 const items = [
   {
+key:"Anasayfa",
+label:"KEAS PORTAL"
+  },
+  {
+    type: "divider"
+  },
+  {
     key: 'sub1',
-    label: 'Navigation One',
-    icon: <MailOutlined />,
+    label: 'Vardiya Raporu',
+    icon: <ToolOutlined />,
     children: [
       {
         key: 'g1',
-        label: 'Item 1',
+        label: 'Gebze',
         type: 'group',
         children: [
           {
             key: '1',
-            label: 'Option 1',
+            label: 'MEP',
           },
           {
             key: '2',
-            label: 'Option 2',
+            label: 'MDF',
           },
-        ],
-      },
-      {
-        key: 'g2',
-        label: 'Item 2',
-        type: 'group',
-        children: [
           {
             key: '3',
-            label: 'Option 3',
-          },
-          {
-            key: '4',
-            label: 'Option 4',
+            label: 'YL',
           },
         ],
       },
+      
     ],
   },
   {
     key: 'sub2',
-    label: 'Navigation Two',
-    icon: <AppstoreOutlined />,
+    label: 'Kalite Uygulamaları',
+    icon: <TrophyOutlined />,
     children: [
-      {
-        key: '5',
-        label: 'Option 5',
-      },
-      {
-        key: '6',
-        label: 'Option 6',
-      },
+     
+    
       {
         key: 'sub3',
-        label: 'Submenu',
+        label: '5S',
         children: [
           {
-            key: '7',
-            label: 'Option 7',
+            key: 'Puanlama',
+            label: 'Puanlama',
           },
           {
             key: '8',
-            label: 'Option 8',
+            label: '5S Bilgi Kitapçığı',
           },
         ],
       },
     ],
   },
   {
+    key:'data',
+    label:'Canlı Veri',
+    icon: <BarChartOutlined />,
+  },
+  {
     type: 'divider',
   },
-  {
-    key: 'sub4',
-    label: 'Navigation Three',
-    icon: <SettingOutlined />,
-    children: [
-      {
-        key: '9',
-        label: 'Option 9',
-      },
-      {
-        key: '10',
-        label: 'Option 10',
-      },
-      {
-        key: '11',
-        label: 'Option 11',
-      },
-      {
-        key: '12',
-        label: 'Option 12',
-      },
-    ],
-  },
-  {
-    key: 'grp',
-    label: 'Group',
-    type: 'group',
-    children: [
-      {
-        key: '13',
-        label: 'Option 13',
-      },
-      {
-        key: '14',
-        label: 'Option 14',
-      },
-    ],
-  },
+  
+  
 ];
 const NavigationPage = () => {
+  const navigate=useNavigate();
   const onClick = (e) => {
-    console.log('click ', e);
+    
+    
+    if(e.key==='Puanlama'){
+      
+      navigate("/kalite5s")
+    }
+    if(e.key==='Anasayfa'){
+      
+      navigate("/")
+    }
   };
   return (
     <Menu
@@ -120,8 +91,8 @@ const NavigationPage = () => {
       style={{
         width: 256,
       }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
+      defaultSelectedKeys={['Puanlama']}
+      defaultOpenKeys={['sub3']}
       mode="inline"
       items={items}
     />

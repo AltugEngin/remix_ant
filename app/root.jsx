@@ -28,6 +28,8 @@ export function Layout({ children }) {
 
 export default function App() {
   return(<div className="flex">
-    <NavigationPage/> 
-  <Outlet /></div>);
+    <NavigationPage/>
+    <Outlet /> 
+  
+  </div>);
 }
